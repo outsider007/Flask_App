@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li style="list-style-type: none">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="form-control">
+        <table>
+            <tr>
+                <td>Логин</td>
+                <td><input type="text" name="login"></td>
+            </tr>
+            <tr>
+                <td>Пароль</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Повтор пароля</td>
+                <td><input type="password" name="password2"></td>
+            </tr>
+            <tr>
+                <td><a href="/login"></a></td>
+                <td><input type="submit" value="Зарегистрироваться" class="btn btn-outline-primary"></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+{% endblock %}

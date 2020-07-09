@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Quest
+{% endblock %}
+
+{% block menu_bar %}
+<nav class="my-2 my-md-0 mr-md-3">
+    <a class="btn btn-outline-primary" href="{{ url_for('start_game') }}">Начать игру</a>
+</nav>
+{% endblock %}
+
+
+{% block body%}
+<div class="container">
+
+    <h3 id="quest" class="quest">Вопрос:</h3>
+    <p>
+    <div id="question">
+        <b>Инструкция:</b> <br>На каждом этапе игры пользователю задаётся вопрос и предлагается несколько вариантов
+        ответа, каждый из которых пронумерован.
+        От ответа пользователя зависит дальнейший ход игры. В игре пристутствуют несколько сюжетных линий, но лишь одна
+        приведёт к победе.
+        <br>В поле для ввода необходимо ввести номер ответа. <br>При вводе некорректного ответа (номер, не
+        соответствующий ни одному вопросу, либо любой другой символ) внешние изменения страницы отсутствуют.<br>
+        Для того, чтобы начать сначала, находясь на любом этапе, необходимо нажать на кнопку "начать игру" в верхней
+        панели.<br>
+        Желаю удачи!<br><br>
+        Напишите "Старт" для начала игры
+    </div>
+    </p>
+    <div id="answers">
+        <div class="answers_content" id="answers_content"></div>
+    </div>
+
+
+    <form action="/start" method="post" name="form" id="form">
+        <label for="selection">Введите ответ</label>&ensp;
+        <input id="selection" name="selection" type="text" class="input">
+        <input type="button" value="Выбрать" onclick="processed_data();">
+    </form>
+</div>
+{% endblock %}

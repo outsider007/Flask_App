@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li style="list-style-type: none">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="form-control">
+        <table>
+            <tr>
+                <td>Логин</td>
+                <td><input type="text" name="login"></td>
+            </tr>
+            <tr>
+                <td>Пароль</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('login_page') }}"></a></td>
+                <td><input type="submit" value="Авторизоваться" class="btn btn-outline-primary"></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+{% endblock %}
